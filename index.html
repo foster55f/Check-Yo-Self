@@ -6,36 +6,71 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header> 
+  <header class="body__header"> 
     <h1>Check <span>Yo'</span>Self</h1>
+    <form class="header__form">
+      <button class="header__search--btn"><img src="images/search.svg">       
+      </button>
+      <input class="header__input" placeholder= "Search">
+    </form>
   </header>
   <main class="main__content"> 
-    <aside class="main__section--aside">
-      <section class="aside__section">
-        <form class= >
-          <label>            
+    <aside class="aside__left">
+      <section class="left__section">
+        <form class="left__title--form">
+          <label class="left__label--title">
+            Task Title            
           </label>
-          <input type="" name="">
+          <input type="text" id="left__input--title">
         </form>
-        <ul>          
+        <ul id="left__item"> 
+          <li class="left__item--list">  
+          <img src="images/delete.svg" class="left__item-delete">   
+          </li> 
         </ul>
-        <form class=>
-          <label>            
+        <form>
+          <label class = "left__label--item">
+            Task Item            
           </label>
-        </form>
-        <form class=> 
-          <button class=>
-          <button class=>            
+          <div>
+            <input type="text" class="input--item">
+            <button class="left__btn--task" ><img src="images/search.svg">
+          </div>              
           </button>
+        </form>
+        <form class="form"> 
+          <button class="left__btn">
+            Make Task List
+          </button>  
+          <button class="left__btn"> 
+            Clear All           
           </button>  
         </form>
       </section>
-      <section class=> 
-      <button class=>        
-      </button>      
+      <section class=""> 
+        <button class="left__btn"> 
+          Filter By Urgency       
+        </button>      
       </section>
     </aside>
-    <section class=>
+    <section class="section__card">
+      <p class="section__p--taskEmpty">
+        Task Empty
+      </p>
+      <article class="section__card--card">
+        <h2>title</h2>
+        <ul></ul>
+        <footer>
+         <div class="section__card--task">
+           <img src="images/urgent.svg" class="section__card--delete">
+           <p>URGENT</p>
+         </div> 
+         <div class="section__card--task">
+           <img src="images/delete.svg" class= "section__card--delete"disable>
+           <p>DELETE</p>
+         </div>
+        </footer>
+      </article>
     </section>
   </main>
 </head>  
