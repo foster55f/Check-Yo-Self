@@ -1,24 +1,26 @@
 class ToDoList {
-  constructor(id, title, taskArray, urgent) {
-    this.id = id;
-    this.title = title;
-    this.urgent = urgent || false;
-    this.taskArray = taskArray || [];
+  constructor(properties) {
+    this.id = properties.id;
+    this.title = properties.title;
+    this.urgent = properties.urgent || false;
+    this.taskList = properties.taskList || [];
+  }
+  
+  static saveToStorage(todos) {
+    localStorage.setItem('todoArray', JSON.stringify(todos))
   }
 }
 
-saveToStorage(array) {
-  localStorage.setItem()
-}
 
-deleteFromStorage() {
 
-}
+// deleteFromStorage() {
 
-updateToDo() {
+// }
 
-}
+// updateToDo() {
 
-updateTask() {
+// }
 
-}
+// updateTask() {
+
+// }

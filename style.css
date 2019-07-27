@@ -1,11 +1,11 @@
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; margin: 0;
 }
 
 /*body*/
 
 body {
-  font-family: : 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   height: 100vh;
 }
 
@@ -45,34 +45,38 @@ div {
   width: 95%;
   border-radius: 4px;
   border-color: #1F1F3D;
+  font-weight: 700;
+  font-size: 1em;
 }
 
 .header__form {
   display: flex;
   margin-right: 1.5%;
   margin-top: 1.5%;
-  padding-bottom: 10px;
+  padding-bottom: 1%;
   width:30%;
 }
 
 .header__search--btn {
   background-color: #C7D3D8;
-  border-radius: 10% 0% 0% 10%;
-  height: 45px;
+  border-radius: 1px;
+  height: 40px;
+  min-width: 40px;
   width: 10%;
+  border: none;
 }
 
 .header__input {
   width: 90%;
-  border-radius: 5%;
-  height: 45px;
+  border-radius: 1px;
+  border: none;
 }
 
 h1 {
   color: #FFFFFF;
-  text-transform: uppercase;
   margin-left: 1%;
   margin-top: 1%;
+  font-size: 2.3pc;
 }
 
 span {
@@ -86,10 +90,10 @@ aside {
   width:25%;
 }
 
-.left__title--form {
+.left__form {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 98%;
 }
 
 .left__item--list {
@@ -104,14 +108,18 @@ aside {
 
 #left__input--title {
   display: flex;
-  width: 210px;
+  width: 98%;
   height: 40px;
+  border-radius: 2px;
 }
 
-.input--item {
+.left__input--item {
   display: flex;
-  height: 35px;
+  height: 40px;
+  border-right: none;
   width: 80%;
+  border: 2px solid #1F1F3D;
+  border-radius: 2px;
 }
 
 label {
@@ -122,30 +130,21 @@ input {
   border-radius: 2%;
 }
 
-.left__btn--clear {
-  background-color: #1F1F3D;
-  color: #ffffff;
-  width: 95%; 
-  height: 40px;
-}
-
-.left__btn--make {
-  margin: auto;
-  background-color: #1F1F3D; 
-  color: #ffffff;
-  width: 95%;
-  height: 40px;
-}
-
-.left__btn--filter {
-  width: 95%;
-  background-color: #EF4A23;
-  border-color: #782616;
-}
-
 .left__btn--task {
-  height: 35px;
-  width: 20%;
+  height: 40px;
+  width: 16%;
+  border: none;
+  border-radius: 0% 10% 10% 0%;
+  font-weight: 700;
+}
+
+.left__btn--task:disabled {
+  background-color: #C7C3D8;
+  border: 2px solid #1F1F3D;
+}
+
+.header__search--glass {
+  height: 25px;
 }
 
 article {
@@ -165,7 +164,8 @@ h2 {
   border-top: 2px solid #C7D3D8;
   display: flex;
   font-weight: 600;
-  height: 20px;
+  height: 100px;
+  color: black;
 }
 
 .section__card--delete {
@@ -178,6 +178,14 @@ h2 {
 
 .section__card--task {
   flex-direction: column;
+}
+
+.section__card--card {
+  width: 300px;
+}
+
+.new-class {
+  color: black;
 }
 
 footer {
