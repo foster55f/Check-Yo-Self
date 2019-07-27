@@ -3,11 +3,11 @@
 <head>
   <title>Check Yo' Self</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
+  <link href=“https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap” rel=“stylesheet” ?|>
 </head>
 <body>
   <header class="body__header"> 
-    <h1>Check <span>Yo'</span>Self</h1>
+    <h1>CHECK <span>YO'</span> SELF</h1>
     <form class="header__form">
       <button class="header__search--btn"><img src="images/search.svg">       
       </button>
@@ -17,38 +17,35 @@
   <main class="main__content"> 
     <aside class="aside__left">
       <section class="left__section">
-        <form class="left__title--form">
+        <form class="left__form">
           <label class="left__label--title">
             Task Title            
           </label>
           <input type="text" id="left__input--title">
-        </form>
+        <!-- </form> -->
         <ul id="left__item"> 
-          <li class="left__item--list">  
-          <img src="images/delete.svg" class="left__item-delete">   
-          </li> 
         </ul>
-        <form>
+       <!--  <form> -->
           <label class = "left__label--item">
             Task Item            
           </label>
           <div>
-            <input type="text" class="input--item">
-            <button class="left__btn--task" ><img src="images/search.svg">
-          </div>              
+            <input type="text" class="left__input--item">
+            <button class="left__btn--task" disabled>  +           
           </button>
-        </form>
-        <form class="form"> 
-          <button class="left__btn">
+          </div> 
+        <!-- <form class="form">  -->
+          <button class="left__btn" id="left__btn--make" disabled>
             Make Task List
           </button>  
-          <button class="left__btn"> 
+          </form>
+          <button class="left__btn" id="left__btn--clear" disabled> 
             Clear All           
           </button>  
-        </form>
+        <!-- </form> -->
       </section>
       <section class=""> 
-        <button class="left__btn"> 
+        <button class="left__btn" id="left__btn--filter"> 
           Filter By Urgency       
         </button>      
       </section>
@@ -57,7 +54,7 @@
       <p class="section__p--taskEmpty">
         Task Empty
       </p>
-      <article class="section__card--card">
+   <!--    <article class="section__card--card">
         <h2>title</h2>
         <ul></ul>
         <footer>
@@ -70,7 +67,7 @@
            <p>DELETE</p>
          </div>
         </footer>
-      </article>
+      </article> -->
     </section>
   </main>
 </head>  
