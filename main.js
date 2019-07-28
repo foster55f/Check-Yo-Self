@@ -62,12 +62,13 @@ function populateCards() {
   for(var i = 0; i < allToDoLists.length; i++) {
     cardSection.insertAdjacentHTML('afterbegin', `<article class="section__card--card"><h2></h2><ul class= card__item ></ul></article>`)
     //how many list items to make for this card
-    for(var i = 0; i < allToDoList.length; i++) {
+    allToDoLists[i].taskList.forEach(function(task) {
       var plusTaskInsert = `<li class="card__item--list"><img src="images/delete.svg" class="card__item-delete"><p></p></li>`
       document.querySelector('.card__item').insertAdjacentHTML('beforeend', plusTaskInsert)
-      itemList.insertAdjacentHTML('beforeend', plusTaskInsert)
-      document.querySelector('.card__item').lastChild.getElementsByTagName('P')[0].innerHTML = allToDoLists[i]
-    }
+      document.querySelector('.card__item').lastChild.getElementsByTagName('P')[0].innerHTML = task
+
+    })
+      document.querySelector('.section__card--card').getElementsByTagName('H2')[0].innerHTML = allToDoLists[i].title
   }
 }
 
