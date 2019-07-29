@@ -3,14 +3,17 @@ class ToDoList {
     this.id = properties.id;
     this.title = properties.title;
     this.urgent = properties.urgent || false;
-    this.taskList = properties.taskList || [];
+    this.taskList = properties.taskList || []
   }
   
-  static saveToStorage(todos) {
+  saveToStorage(todos) {
     localStorage.setItem('todoArray', JSON.stringify(todos))
   }
-}
 
+  // updateTask(toDoListId, taskId) {
+  //   this.tasks
+
+  // }
 
 
 // deleteFromStorage() {
@@ -19,8 +22,4 @@ class ToDoList {
 
 // updateToDo() {
 
-// }
-
-// updateTask() {
-
-// }
+}

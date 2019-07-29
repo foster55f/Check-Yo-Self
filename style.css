@@ -9,6 +9,44 @@ body {
   height: 100vh;
 }
 
+/*/*Header*/
+
+header {
+  background-color: #1F1F3D;
+  display: flex;
+  justify-content: space-between;
+  height:75px;
+  width:100%;
+}
+
+.header__form {
+  display: flex;
+  margin-right: 1.5%;
+  margin-top: 1.5%;
+  padding-bottom: 1%;
+  width:30%;
+}
+
+.header__search--btn {
+  background-color: #C7D3D8;
+  border-radius: 1px;
+  border: none;
+  height: 40px;
+  min-width: 40px;
+  width: 10%;
+}
+
+.header__input {
+  border-radius: 1px;
+  border: none;
+  width: 90%;
+}
+
+.header__search--glass {
+  height: 25px;
+}
+
+/*Left Sidebar Section*/
 .aside__left {
   display: flex;
   flex-direction: column;
@@ -25,14 +63,6 @@ main {
   display: flex;
 }
 
-header {
-  background-color: #1F1F3D;
-  display: flex;
-  justify-content: space-between;
-  height:75px;
-  width:100%;
-}
-
 div {
   display: flex;
 }
@@ -47,29 +77,6 @@ div {
   border-color: #1F1F3D;
   font-weight: 700;
   font-size: 1em;
-}
-
-.header__form {
-  display: flex;
-  margin-right: 1.5%;
-  margin-top: 1.5%;
-  padding-bottom: 1%;
-  width:30%;
-}
-
-.header__search--btn {
-  background-color: #C7D3D8;
-  border-radius: 1px;
-  height: 40px;
-  min-width: 40px;
-  width: 10%;
-  border: none;
-}
-
-.header__input {
-  width: 90%;
-  border-radius: 1px;
-  border: none;
 }
 
 h1 {
@@ -143,9 +150,6 @@ input {
   border: 2px solid #1F1F3D;
 }
 
-.header__search--glass {
-  height: 25px;
-}
 
 article {
   background-color: #FAFDFF;
@@ -164,8 +168,27 @@ h2 {
   border-top: 2px solid #C7D3D8;
   display: flex;
   font-weight: 600;
-  height: 100px;
+  height: 50px;
   color: black;
+  width: 100%;
+}
+
+.card__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 150px;
+}
+
+.card__item--list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card__item--checkbox {
+  height: 20px;
+  margin-right: 5px;
 }
 
 .section__card--delete {
@@ -181,7 +204,11 @@ h2 {
 }
 
 .section__card--card {
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2px solid #C7D3D8;
 }
 
 .new-class {
@@ -191,4 +218,17 @@ h2 {
 footer {
   display: flex;
   align-items: center;
+}
+
+.card__urgent {
+  height:20px;
+}
+
+.card__delete {
+  height: 20px;
+}
+
+.card__item--image {
+  border-top: 2px solid #C7D3D8;
+  width: 100%;
 }
