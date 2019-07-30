@@ -107,7 +107,7 @@ function addTaskCard(event) {
     
     var taskList = [];
     for(var i = 0; i < itemList.children.length; i++) {
-      task = new Task({name: itemList.children[i].innerText})
+      task = new Task({id: Date.now(), name: itemList.children[i].innerText})
       taskList.push(task)
     }
 
@@ -154,7 +154,6 @@ function enablePlus() {
 }
 
 function deleteItem(event) {
-  console.log(event)
   itemList.removeChild(event.target.parentNode) 
 }
 
@@ -225,16 +224,24 @@ function taskChecked(event) {
 
 
 function taskItemCheck(e) {
-  var taskText= e.target.closest(".card__item--list").querySelector('p').innerHTML
-  for(var i=0;i < allToDoLists.length;i++) {
-  if(taskText === allToDoLists[i].title) {
-    
-   }
-  }
+  var listId = e.target.closest(".section__card--card").getAttribute('data-id')
   
-   
- 
-}
+  for(var i=0;i < allToDoLists.length;i++) {
+    if(listId == allToDoLists[i].id) {
+        var taskText= e.target.closest(".card__item--list").querySelector('p').innerHTML
+        allToDoLists[i].taskList.forEach(function(task) {
+          if(taskText === task.name) {
+            task.checked = !task.checked
+            console.log(allToDoLists[i])
+            allToDoLists[i].saveToStorage(allToDoLists)
+          }
+        })
+
+    }
+  }
+}  
+
+
 
 
 
