@@ -18,7 +18,8 @@ clearBtn.addEventListener('click', clearForm);
 addTaskBtn.addEventListener('click', addLeftTaskItem);
 newListForm.addEventListener('click', enablePlus)
 newListForm.addEventListener('keyup', enablePlus);
-taskTitleInput.addEventListener('keyup', enableMakeAndClearBtns);
+newListForm.addEventListener('keyup', enableMakeAndClearBtns);
+newListForm.addEventListener('click', enableMakeAndClearBtns);
 cardSection.addEventListener('click', deleteToDoList);
 cardSection.addEventListener('click', taskChecked);
 cardSection.addEventListener('click', listUrgency);
@@ -138,7 +139,6 @@ function addLeftTaskItem(event) {
   event.preventDefault();
   addTaskListItemToList(itemList, taskItemInput.value);
   setListItemDeleteImage(itemList.lastChild.getElementsByTagName('IMG')[0]);
-  enableMakeAndClearBtns();
   taskItemInput.value = '';
 }
 

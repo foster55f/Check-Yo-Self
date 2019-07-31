@@ -123,9 +123,10 @@ aside {
 
 #left__input--title {
   display: flex;
-  width: 98%;
-  height: 40px;
-  border-radius: 2px;
+  width: 99%;
+  height: 50px;
+  border-radius: 3px;
+  border: 2px solid #1F1F3D;
 }
 
 .left__input--item {
@@ -134,7 +135,7 @@ aside {
   border-right: none;
   width: 83%;
   border: 2px solid #1F1F3D;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 label {
@@ -165,6 +166,18 @@ input {
 
 #left__btn--clear:disabled {
   background-color: grey;
+}
+
+.left__filter {
+    margin-top: 20px;
+    background-color: #1F1F3D;
+    color: white;
+    height: 55px;
+    width: 96%;
+    border-radius: 4px;
+    border-color: #1F1F3D;
+    font-weight: 700;
+    font-size: 1.4em;
 }
 
 
@@ -250,14 +263,6 @@ div {
   height: 100vw;
   font-size: 0;
 }
-/*.masonry-layout__panel {
-  break-inside: avoid;
-  padding: 5px;
-}
-.masonry-layout__panel-content {
-  padding: 10px;
-  border-radius: 10px;
-}*/
 
 footer {
   display: flex;
