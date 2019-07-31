@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Check Yo' Self</title>
    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css"> 
@@ -27,27 +28,26 @@
           <label class = "left__label--item">
             Task Item            
           </label>
-          <div>
+          <div class = "left__div">
             <input type="text" class="left__input--item">
-            <button class="left__btn--task" disabled>  +           
-          </button>
+            <button class="left__btn--task" disabled><img src="images/plus.svg" class="plus__img">      </button>
           </div> 
           <button class="left__btn" id="left__btn--make" disabled>
             Make Task List
           </button>  
-          </form>
           <button class="left__btn" id="left__btn--clear" disabled> 
             Clear All           
           </button> 
+        </form>
       </section>
-      <section class=""> 
+      <p class = "left__P"></p>
         <button class="left__btn" id="left__btn--filter"> 
           Filter By Urgency       
         </button>      
       </section>
     </aside>
     <section class="section__card">
-      <p class="section__p--task hidden" id = "section__p--task">
+      <p class="section__p--task">
         Task Empty
       </p>
     </section>
