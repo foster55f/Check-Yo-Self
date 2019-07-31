@@ -9,43 +9,22 @@ var cardSection = document.querySelector('.section__card')
 var taskEmpty = document.querySelector('.section__p--task')
 var allToDoLists = []
 
-
-
-
-
-
-
-
 // EventListeners
 
 window.addEventListener('load', initializePage);
 makeBtn.addEventListener('click', addTaskCard)
 clearBtn.addEventListener('click', clearForm)
-filterBtn.addEventListener('click', eventHandler)
 addTaskBtn.addEventListener('click', addTaskItem)
 taskItemInput.addEventListener('keyup', enablePlus)
 taskTitleInput.addEventListener('keyup', enableMakeAndClear)
 cardSection.addEventListener('click', deleteCard);
 cardSection.addEventListener('click', taskChecked);
-cardSection.addEventListener('click', taskItemCheck);
 cardSection.addEventListener('click', listUrgency);
 cardSection.addEventListener('click', listUrgent);
-
-
-
-
-
-
-
-
-
-
+cardSection.addEventListener('click', listUrgent);
+itemList.addEventListener('click', deleteItem);
 
 // Functions
-
-function eventHandler(event){
-  event.preventDefault();
-}
 
 function addTaskItem(event) {
   event.preventDefault();
@@ -55,7 +34,6 @@ function addTaskItem(event) {
     </li>`
     itemList.insertAdjacentHTML('beforeend', plusTaskInsert)
     document.querySelector('#left__item').lastChild.getElementsByTagName('P')[0].innerHTML  = taskItemInput.value
-    addDeleteEventListeners();
     enableMakeAndClear();
     taskItemInput.value = '';
   } 
@@ -75,7 +53,6 @@ function initializePage() {
 }
 
 function populateCards() {
-  // how many cards to make
   for(var i = 0; i < allToDoLists.length; i++) {
     cardSection.insertAdjacentHTML('afterbegin', `<article class="section__card--card" data-id= ${allToDoLists[i].id}><h2></h2>
       <ul class= "card__item" ></ul>
@@ -86,7 +63,6 @@ function populateCards() {
       <p>DELETE</p>
       </footer>
       </article>`)
-    //how many list items to make for this card
     allToDoLists[i].taskList.forEach(function(task) {
       var plusTaskInsert = `<li class="card__item--list" data-id=${task.id} ><img class="card__item--checkbox"><p></p></li>`
       document.querySelector('.card__item').insertAdjacentHTML('beforeend', plusTaskInsert)
@@ -135,28 +111,28 @@ function addTaskCard(event) {
     ToDoList.saveToStorage(allToDoLists)
      cardSection.insertAdjacentHTML('afterbegin', `<article class="section__card--card" data-id=${id}><h2></h2></article>`)
     var list = itemList.cloneNode(true)
+
+    list.className = 'card__item'
     
     for(var i=0; i < list.children.length; i++) {
       list.children[i].classList.add('new-class')
-      // list.children[i].setAttribute('data-id',)
-      list.children[i].getElementsByTagName('IMG')[0]
+      list.children[i].classList.add('card__item--list')
+
+      list.children[i].getElementsByTagName('IMG')[0].className = 'card__item--checkbox'
       list.children[i].getElementsByTagName('IMG')[0].src = "images/checkbox.svg"
     }
     
     document.querySelector(".section__card--card").appendChild(list)
+    document.querySelector(".section__card--card").insertAdjacentHTML('beforeend', `<footer class= "card__item--image">
+      <img src="images/urgent.svg" class="card__urgent">
+      <p>URGENT</p>
+      <img src="images/delete.svg" class="card__delete">
+      <p>DELETE</p>
+      </footer>`)
     document.querySelector(".section__card--card").getElementsByTagName('H2')[0].innerHTML = taskTitleInput.value
     clearForm();
     taskChecked(event);
-    taskItemCheck(event);
 
-  }
-
-//replace with event delegation on UL
-  function addDeleteEventListeners() {
-    var deleteBtns = document.getElementsByClassName('left__item-delete')
-    for(i=0; i < deleteBtns.length; i++) {
-      deleteBtns[i].addEventListener('click', deleteItem)
-    }
   }
 
 function enablePlus() {
@@ -228,6 +204,15 @@ function taskChecked(event) {
       event.target.src = 'images/checkbox.svg'
       event.target.nextElementSibling.style.color =  'black'
     }
+
+    var listId = event.target.closest(".section__card--card").getAttribute('data-id')
+
+    for(var i=0;i < allToDoLists.length;i++) {
+      if(listId == allToDoLists[i].id) {
+          var taskText= event.target.closest(".card__item--list").querySelector('p').innerHTML
+          allToDoLists[i].updateTask(taskText, allToDoLists)
+      }
+    }
   }
 }
 
@@ -237,26 +222,11 @@ function listUrgent() {
       event.target.src = 'images/urgent-active.svg';
       event.target.nextElementSibling.style.color =  '#B23A25';
       document.querySelector('.section__card--card').style.backgroundColor= '#FFE89D';
-
-      // event.target.parentNode.getElementsByTagName('p')[0].style.color = 'blue'
     } 
     else {
       event.target.src = 'images/urgent.svg'
       event.target.nextElementSibling.style.color =  'black'
       document.querySelector('.section__card--card').style.backgroundColor= 'white';
-    }
-  }
-}
-
-function taskItemCheck(e) {
-  if (e.target.className === "card__item--checkbox") {
-    var listId = e.target.closest(".section__card--card").getAttribute('data-id')
-    
-    for(var i=0;i < allToDoLists.length;i++) {
-      if(listId == allToDoLists[i].id) {
-          var taskText= e.target.closest(".card__item--list").querySelector('p').innerHTML
-          allToDoLists[i].updateTask(taskText, allToDoLists)
-      }
     }
   }
 }

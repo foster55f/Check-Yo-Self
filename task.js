@@ -4,5 +4,4 @@ class Task {
     this.name = properties.name;
     this.checked = properties.checked || false;
   }
-
 }

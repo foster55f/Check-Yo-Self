@@ -11,7 +11,7 @@ class ToDoList {
       if(taskText === task.name) {
         task.checked = !task.checked
         ToDoList.saveToStorage(allToDoLists)
-      }
+      } 
     })
   }
 
@@ -31,8 +31,7 @@ class ToDoList {
   static updateToDo(toDoListId, allToDoLists) {
     var listToUpdate = this.findToDo(toDoListId,allToDoLists)
     listToUpdate.urgent = !listToUpdate.urgent;
-    listToUpdate.saveToStorage(allToDoLists)
-    console.log(allToDoLists)
+    ToDoList.saveToStorage(allToDoLists)
   }
 
   static findToDo(toDoListId, allToDoLists) {
