@@ -11,7 +11,7 @@ class ToDoList {
       if(taskText === task.name) {
         task.checked = !task.checked
         ToDoList.saveToStorage(allToDoLists)
-      } 
+      }
     })
   }
 
@@ -20,12 +20,12 @@ class ToDoList {
   }
 
   static deleteFromStorage(toDoListId, allToDoLists) {
-    for(var i=0;i < allToDoLists.length;i++) {
-      if(toDoListId == allToDoLists[i].id) {
-        allToDoLists.splice(i,1);
+    allToDoLists.forEach(function(list, index) {
+      if(toDoListId == list.id) {
+        allToDoLists.splice(index,1);
         ToDoList.saveToStorage(allToDoLists);
       }
-    } 
+    })
   }
 
   static updateToDo(toDoListId, allToDoLists) {
@@ -35,11 +35,13 @@ class ToDoList {
   }
 
   static findToDo(toDoListId, allToDoLists) {
-    for(var i=0;i < allToDoLists.length;i++) {
-      if(toDoListId == allToDoLists[i].id) {
-        return allToDoLists[i]
-      }
-    } 
-  }
+    var targetList;
 
+    allToDoLists.forEach(function(list) {
+      if(toDoListId == list.id) {
+        targetList = list
+      }
+    })
+    return targetList
+  }
 }
