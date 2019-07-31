@@ -96,7 +96,7 @@ function addTaskListItemToList(ul, liText) {
   var plusTaskInsert =
     `<li>
       <img>
-      <p></p>
+      <p class="item--list"></p>
     </li>`;
 
   ul.insertAdjacentHTML('beforeend', plusTaskInsert);
@@ -273,15 +273,23 @@ function listUrgency(event) {
 // updates urgency styling for to do list card
 function toggleUrgency(target) {
   var card = target.closest('.section__card--card');
+  var itemBorder = target.closest('.card__item--image')
+  var headerBorder = card.querySelector('h2');
 
   if(target.src.includes('images/urgent.svg')) {
     target.src = 'images/urgent-active.svg';
     target.nextElementSibling.style.color = '#B23A25';
     card.style.backgroundColor= '#FFE89D';
+    card.style.borderColor= '#FFC30C';
+    itemBorder.style.borderTop= '2px solid #FFC30C';
+    headerBorder.style.borderBottom = '2px solid #FFC30C';
   } else {
     target.src = 'images/urgent.svg';
     target.nextElementSibling.style.color = 'black';
     card.style.backgroundColor= 'white';
+    card.style.borderColor= '#C7D3D8';
+    itemBorder.style.borderTop= '2px solid #C7D3D8';
+    headerBorder.style.borderBottom = '2px solid #C7D3D8';
   }
 }
 
